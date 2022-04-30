@@ -1,0 +1,54 @@
+/*  assignment 1 part D
+  * PUT YOUR NAME AND ANSWERS HERE
+  * Name: Ya Zou
+  * When doing typecasting from signed to unsigned, if the input data is positive 
+  * there is no problem as the bit pattern is the same for positive numbers between
+  * signed and unsigned. Consequently, we can explain that the input values are 1000 and 100,
+  * there are no problems with typecasting from unsigned int to signed int,
+  * but when we do typecasting from unsigned char(1000) to char whos output data is -24 there is    * a problem because char has a range from -128 to 127.
+  * When the input data is larger than the range of char, the origin value(1000)
+  * gets interpreted as negative because the leftmost bit its 1.
+  * However, if the signed number turns out to be negative the result will be a really 
+  * large positive number also we can explain when we input -1000 and -100 turns out a really 
+  * large positive number for unsigned int and unsigned long, for small negative numbers, 
+  * the result ends up being a very large positive number as well. 
+  * When we do typecasting for unsigned char to char, it gives us a positive number, 
+  * for the same reason as I explained above because the value (-1000 ) is smaller 
+  * than the range of char it caused an overflow, 
+  * when overflow happed in this situation, it always causes truncation.
+  */ 
+
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <limits.h>
+
+
+void typecast(int a)
+{
+	unsigned b = (unsigned) a;
+	unsigned char c = (unsigned char) a;
+	char d = (char) a;
+	unsigned long e = (unsigned long) a;
+	long f = (long) a;
+	
+	// this illustrates some 
+	printf(" %d : \n",a);
+	printf(" ->unsigned int: %u\n",b);
+	printf(" ->unsigned char (as decimal) %u\n",c);
+	printf(" ->char (as decimal) %d\n",d);
+	printf(" ->unsigned long: %lu\n",e);
+	printf(" ->long: %ld\n",f);
+	
+}
+
+
+int main()
+{
+   	int num=0;
+	printf("Enter an integer: ");
+	scanf("%d", &num);
+	typecast(num);
+	
+    return 0;
+}
