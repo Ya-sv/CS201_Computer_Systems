@@ -32,7 +32,7 @@ int createPayroll(Employee list[], int count)
 		char tname[SIZE];
 		printf("For employee%i\n", i + 1);
 		printf("last name? ");
-		scanf("%s", &list[i].last_name);
+		scanf("%s", list[i].last_name);
 		printf("pay rate?");
 		scanf("%lf", &list[i].pay_rate);
 	}
